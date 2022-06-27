@@ -1,8 +1,8 @@
-import { motion, useAnimation } from "framer-motion"
-import * as React from "react"
-import { useEffect, useState } from "react"
-import { useInView } from "react-intersection-observer"
-import styled from "styled-components"
+import { motion, useAnimation } from "framer-motion";
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import styled from "styled-components";
 
 const StyledContactSection = styled(motion.section)`
   padding-block: 10rem;
@@ -18,15 +18,19 @@ const StyledContactSection = styled(motion.section)`
     text-align: center;
   }
 
+  h1 {
+    text-align: center;
+  }
+
   .contactButton {
     ${({ theme }) => theme.mixins.buttonPrimary}
   }
-`
+`;
 
 const Contact: React.FC<{}> = ({}) => {
-  const [seen, setSeen] = useState(false)
-  const [ref, inView] = useInView({ threshold: 0.5 })
-  const animation = useAnimation()
+  const [seen, setSeen] = useState(false);
+  const [ref, inView] = useInView({ threshold: 0.5 });
+  const animation = useAnimation();
 
   useEffect(() => {
     if (inView && !seen) {
@@ -35,10 +39,10 @@ const Contact: React.FC<{}> = ({}) => {
         transition: {
           duration: 1,
         },
-      })
-      setSeen(true)
+      });
+      setSeen(true);
     }
-  }, [inView, seen])
+  }, [inView, seen]);
 
   return (
     <StyledContactSection
@@ -57,7 +61,7 @@ const Contact: React.FC<{}> = ({}) => {
         Contact Me
       </a>
     </StyledContactSection>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
