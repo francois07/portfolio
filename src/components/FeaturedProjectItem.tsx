@@ -1,17 +1,17 @@
-import * as React from "react"
-import styled from "styled-components"
+import * as React from "react";
+import styled from "styled-components";
 
-import { FaExternalLinkAlt } from "react-icons/fa"
-import { FiGithub } from "react-icons/fi"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 interface ProjectItemProps {
-  title: string
-  description: string
-  stack: string[]
-  github?: string
-  website?: string
-  cover: IGatsbyImageData
+  title: string;
+  description: string;
+  stack: string[];
+  github?: string;
+  website?: string;
+  cover: IGatsbyImageData;
 }
 
 const StyledProjectsItem = styled.div`
@@ -21,6 +21,7 @@ const StyledProjectsItem = styled.div`
 
   border-radius: 2px;
   border: 1px solid rgb(255, 255, 255, 15%);
+  overflow: hidden;
 
   box-shadow: inset 0px -8px 0px var(--primary);
 
@@ -105,9 +106,9 @@ const StyledProjectsItem = styled.div`
     min-height: 300px;
     flex: 1;
   }
-`
+`;
 
-const ProjectItem: React.FC<ProjectItemProps> = props => {
+const ProjectItem: React.FC<ProjectItemProps> = (props) => {
   return (
     <StyledProjectsItem>
       <div className="featured-img-wrapper">
@@ -141,7 +142,7 @@ const ProjectItem: React.FC<ProjectItemProps> = props => {
         </ul>
       </div>
     </StyledProjectsItem>
-  )
-}
+  );
+};
 
-export default ProjectItem
+export default ProjectItem;

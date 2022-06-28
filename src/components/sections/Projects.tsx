@@ -69,7 +69,10 @@ const Projects: React.FC<{}> = ({}) => {
 
   const projects = useStaticQuery(graphql`
     query Projects {
-      projects: allMdx(filter: { fileAbsolutePath: { regex: "/projects/" } }) {
+      projects: allMdx(
+        filter: { fileAbsolutePath: { regex: "/projects/" } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
         edges {
           node {
             frontmatter {
@@ -86,6 +89,7 @@ const Projects: React.FC<{}> = ({}) => {
 
       featuredProjects: allMdx(
         filter: { fileAbsolutePath: { regex: "/featured/" } }
+        sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
           node {
@@ -98,11 +102,7 @@ const Projects: React.FC<{}> = ({}) => {
               description
               cover {
                 childImageSharp {
-                  gatsbyImageData(
-                    width: 700
-                    placeholder: BLURRED
-                    formats: [AUTO, WEBP, AVIF]
-                  )
+                  gatsbyImageData
                 }
               }
             }
